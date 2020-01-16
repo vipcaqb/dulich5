@@ -30,8 +30,7 @@ router.post('/register',(req,res,next) =>{
 });
 //home page
 router.get('/', async (req,res) =>{
-    var newTopic = await Topic.find().limit(12);
-    console.log(newTopic[0]._id)
+    var newTopic = await Topic.find().limit(15);
     res.render('index',{
         "newTopic" : newTopic
     })
@@ -40,7 +39,8 @@ router.get('/', async (req,res) =>{
 //read one news
 router.get('/:itemId',async (req,res) =>{
     var item =await Topic.findById(req.params.itemId);
-    res.render("read-one",{data: item});
+    var newTopic = await Topic.find().limit(12);
+    res.render("read-one",{data: item,"newTopic":newTopic});
 })
 
 
@@ -93,7 +93,7 @@ router.delete('/dashboard/topic/delete/:topicId',async (req,res) =>{
     try {
         const id = await Topic.findByIdAndDelete(req.params.topicId);
         console.log("Xoa topic thanh cong");
-        res.redirect('/dashboard/topic/getall')
+        res.redirect('/dashboard/topic/getall/1')
     } catch (error) {
         res.json({
             message: error
@@ -134,15 +134,15 @@ router.put('/topic/edit/:topicId', async (req,res) =>{
     }
 });
 
-router.get('/about',(req,res) =>{
-    res.render('about')
+router.get('/orther/about',(req,res) =>{
+    res.render('full-about')
 })
 
 router.get('/archive',(req,res) =>{
     res.render('archive')
 })
 
-router.get('/contact',(req,res) =>{
+router.get('/orther/contact',(req,res) =>{
     res.render('contact')
 })
 

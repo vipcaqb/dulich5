@@ -9,11 +9,13 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Du lịch Việt : <%=data.title%></title>
+    <title>Du lịch Việt </title>
+
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
+
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 
 </head>
 
@@ -30,36 +32,10 @@
     <%- include('header'); -%>
     <!-- ##### Header Area End ##### -->
 
-
     <!-- ##### Mag Posts Area Start ##### -->
-    <section class="mag-posts-area d-flex flex-wrap">
+    
 
-        <!-- >>>>>>>>>>>>>>>>>>>>
-         Post Left Sidebar Area
-        <<<<<<<<<<<<<<<<<<<<< -->
-        <%- include('most-popular') -%>
 
-        <!-- >>>>>>>>>>>>>>>>>>>>
-             Main Posts Area
-        <<<<<<<<<<<<<<<<<<<<< -->
-        <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
-            <!-- Trending Now Posts Area -->
-            
-            <h2><%= data.title %></h2>
-
-            <p><%= data.sortContent%></p>
-            <br>
-            <img src="<%=data.largeImageUrl%>" alt="">
-            <br>
-            <p><%= data.fullContent %> </p>
-
-        </div>
-
-        <!-- >>>>>>>>>>>>>>>>>>>>
-         Post Right Sidebar Area
-        <<<<<<<<<<<<<<<<<<<<< -->
-        <%- include('right-sidebar') -%>
-    </section>
     <!-- ##### Mag Posts Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
