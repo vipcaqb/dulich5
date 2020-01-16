@@ -1,0 +1,68 @@
+<div class="col-sm-9" style="margin-left: 260px; margin-top: 70px;margin-bottom: 70px;">
+    <form action="/dashboard/topic/create" method="POST" role="form">
+        <div class="box-footer text-right">
+            <a class="btn btn-default" href="/dashboard/topic/getall" onclick="return confirm('Do you want to cancel and back to list of News?')">Cancel and Back to
+                All News</a>
+            <button type="submit" class="btn btn-primary">Save News</button>
+        </div>
+        <div class="box box-default">
+            <div class="box-body">
+                <div class="form-group">
+                    <label>Tiêu đề:</label>
+                    <input class="form-control" id="title" name="title" required="required" type="text" />
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ URL: </label>
+                    <input class="form-control" id="urlTitle" name="urlTitle" required="required" type="text" />
+                </div>
+                <div class="form-group">
+                    <label>Location: </label>
+                    <input class="form-control" id="location" name="location" required="required" type="text" />
+                </div>
+                <div class="form-group">
+                    <label>Hot topic ? </label>
+                    <br>
+                    <input type="radio" name="gender" value="true" checked> Yes<br>
+                    <input type="radio" name="gender" value="false"> No<br>
+                </div>
+                <div class="form-group">
+                    <label>Small image Url:</label>
+                    <input class="form-control" id="smallImage" name="smallImageUrl" type="text" />
+                </div>
+                <div class="form-group">
+                    <label>Full image Url:</label>
+                    <input class="form-control" id="largeImage" name="largeImageUrl" type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label>Thể loại: <small class="text-red"><span class="field-validation-valid"
+                                data-valmsg-for="CategoryId"
+                                data-valmsg-replace="true"></span></small></label>
+                    <input class="form-control" id="category" name="category" type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label>Khái quát: <small class="text-red"><span class="field-validation-valid"
+                                data-valmsg-for="ShortContent"
+                                data-valmsg-replace="true"></span></small></label>
+                    <textarea class="form-control" cols="20" id="ShortContent" name="sortContent" required="required" rows="2" style="height:100px"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Viết tin: <small class="text-red"><span class="field-validation-valid"
+                                data-valmsg-for="FullContent"
+                                data-valmsg-replace="true"></span></small></label>
+                    <textarea class="form-control" cols="20" id="FullContent" name="fullContent" required="required" rows="20"></textarea>
+                </div>
+
+            </div>
+
+            <div class="box-footer text-right">
+                <a class="btn btn-default" href="/dashboard/topic/getall" onclick="return confirm('Do you want to cancel and back to list of News?')">Cancel
+                    and Back to
+                    All News</a>
+                <button type="submit" class="btn btn-primary">Save News</button>
+            </div>
+        </div>
+    </form>
+</div>
