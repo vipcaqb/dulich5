@@ -52,36 +52,20 @@
             <div class="trending-now-posts mb-30">
                 <!-- Section Title -->
                 <div class="section-heading">
-                    <h5>TRENDING NOW</h5>
+                    <h5>MỚI</h5>
                 </div>
 
                 <div class="trending-post-slides owl-carousel">
                     <!-- Single Trending Post -->
-                    <div class="single-trending-post">
-                        <img src="https://i-dulich.vnecdn.net/2020/01/13/9-1577936343-1200x0-1578905963-1537-1578906095.jpg" alt="">
-                        <div class="post-content">
-                            <a href="#" class="post-cata">Đà Lạt</a>
-                            <a href="video-post.html" class="post-title">Đà Lạt, Lâm Đồng</a>
+                    <% for(let i=0;i<3;i++){%>
+                        <div class="single-trending-post">
+                            <img src="<%=newTopic[i].largeImageUrl%>" alt="">
+                            <div class="post-content">
+                                <a href="#" class="post-cata"><%=newTopic[i].location%></a>
+                                <a href="/<%=newTopic[i]['_id']%>" class="post-title"><%=newTopic[i].title%></a>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Single Trending Post -->
-                    <div class="single-trending-post">
-                        <img src="https://thoibaonganhang.vn/stores/news_dataimages/minhvl/122019/22/18/1314_13-1576970680_680x0.jpg" alt="">
-                        <div class="post-content">
-                            <a href="#" class="post-cata">Huế</a>
-                            <a href="/5e1ef56db0afdf06907389dd" class="post-title">Phim trường 'Mắt Biếc' thành điểm tham quan</a>
-                        </div>
-                    </div>
-
-                    <!-- Single Trending Post -->
-                    <div class="single-trending-post">
-                        <img src="https://i-dulich.vnecdn.net/2020/01/07/hoa-giay-hue-vnexpress-5-1578374860_680x0.jpg" alt="">
-                        <div class="post-content">
-                            <a href="#" class="post-cata">Huế</a>
-                            <a href="/5e1f0239b0afdf06907389e3" class="post-title">Tết ở làng hoa giấy Thanh Tiên</a>
-                        </div>
-                    </div>
+                    <% } %>  
                 </div>
             </div>
 

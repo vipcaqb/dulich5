@@ -30,18 +30,25 @@ router.post('/register',(req,res,next) =>{
 });
 //home page
 router.get('/', async (req,res) =>{
-    var newTopic = await Topic.find().limit(5);
-    var trendingTopic = await Topic.find().limit(3).skip(5);
+    var newTopic = await Topic.find().limit(12);
+    console.log(newTopic[0]._id)
     res.render('index',{
         "newTopic" : newTopic
     })
 })
 
+//read one news
+router.get('/:itemId',async (req,res) =>{
+    var item =await Topic.findById(req.params.itemId);
+    res.render("read-one",{data: item});
+})
+
+
 //get all topics
-router.get('/dashboard/topic/getall',async (req,res) =>{
+router.get('/dashboard/topic/getall/:page',async (req,res) =>{
     try {
-        var AllOfTopics = await Topic.find();
-        res.render('admin-dashboard/index',{data:AllOfTopics});
+        var AllOfTopics = await Topic.find().limit(5).skip((req.params.page-1)*5);
+        res.render('admin-dashboard/index',{"AllOfTopics":AllOfTopics, pagenumber:req.params.page});
     } catch (error) {
         res.json({message: error});
     }
@@ -66,13 +73,13 @@ router.post('/dashboard/topic/create',(req,res) => {
         topic.isHot = req.body.isHot;
         var d = new Date();
         topic.time = d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
-
+        console.log(req.params.title)
         //save data
 
         topic.save((err,doc)=>{
             if(!err){
                 console.log("Luu du lieu topic thanh cong!");
-                res.redirect('/dashboard/topic/getall')
+                res.redirect('/dashboard/topic/getall/1')
             }
             else{
                 console.log(err);

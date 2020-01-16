@@ -1,7 +1,7 @@
 <div class="col-sm-9" style="margin-left: 260px; margin-top: 70px;margin-bottom: 70px;">
     <form action="/dashboard/topic/create" method="POST" role="form">
         <div class="box-footer text-right">
-            <a class="btn btn-default" href="/dashboard/topic/getall" onclick="return confirm('Do you want to cancel and back to list of News?')">Cancel and Back to
+            <a class="btn btn-default" href="/dashboard/topic/getall/1" onclick="return confirm('Do you want to cancel and back to list of News?')">Cancel and Back to
                 All News</a>
             <button type="submit" class="btn btn-primary">Save News</button>
         </div>
@@ -9,15 +9,15 @@
             <div class="box-body">
                 <div class="form-group">
                     <label>Tiêu đề:</label>
-                    <input class="form-control" id="title" name="title" required="required" type="text" />
+                    <input class="form-control" id="title" name="title"  type="text" />
                 </div>
                 <div class="form-group">
                     <label>Địa chỉ URL: </label>
-                    <input class="form-control" id="urlTitle" name="urlTitle" required="required" type="text" />
+                    <input class="form-control" id="urlTitle" name="urlTitle"  type="text" />
                 </div>
                 <div class="form-group">
                     <label>Location: </label>
-                    <input class="form-control" id="location" name="location" required="required" type="text" />
+                    <input class="form-control" id="location" name="location"  type="text" />
                 </div>
                 <div class="form-group">
                     <label>Hot topic ? </label>
@@ -27,11 +27,11 @@
                 </div>
                 <div class="form-group">
                     <label>Small image Url:</label>
-                    <input class="form-control" id="smallImage" name="smallImageUrl" type="text" />
+                    <input class="form-control" id="smallImageUrl" name="smallImageUrl" type="text" />
                 </div>
                 <div class="form-group">
                     <label>Full image Url:</label>
-                    <input class="form-control" id="largeImage" name="largeImageUrl" type="text" />
+                    <input class="form-control" id="largeImageUrl" name="largeImageUrl" type="text" />
                 </div>
 
                 <div class="form-group">
@@ -45,20 +45,20 @@
                     <label>Khái quát: <small class="text-red"><span class="field-validation-valid"
                                 data-valmsg-for="ShortContent"
                                 data-valmsg-replace="true"></span></small></label>
-                    <textarea class="form-control" cols="20" id="ShortContent" name="sortContent" required="required" rows="2" style="height:100px"></textarea>
+                    <textarea class="form-control" cols="20" id="sortContent" name="sortContent"  rows="2" style="height:100px"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Viết tin: <small class="text-red"><span class="field-validation-valid"
                                 data-valmsg-for="FullContent"
                                 data-valmsg-replace="true"></span></small></label>
-                    <textarea class="form-control" cols="20" id="FullContent" name="fullContent" required="required" rows="20"></textarea>
+                    <textarea class="form-control" cols="20" id="fullContent" name="fullContent"  rows="20"></textarea>
                 </div>
 
             </div>
 
             <div class="box-footer text-right">
-                <a class="btn btn-default" href="/dashboard/topic/getall" onclick="return confirm('Do you want to cancel and back to list of News?')">Cancel
+                <a class="btn btn-default" href="/dashboard/topic/getall/1" onclick="return confirm('Do you want to cancel and back to list of News?')">Cancel
                     and Back to
                     All News</a>
                 <button type="submit" class="btn btn-primary">Save News</button>

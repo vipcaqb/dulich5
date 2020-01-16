@@ -107,13 +107,16 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td><a href=""></a>  Bài 1</a></td>
-                                                            <td class="text-left">1.300</td>
-                                                            <td class="text-left">20.43%</td>
-                                                            <td class="text-left">Ẩm thực</td>
-                                                            <td><a href=""><i class="fas fa-trash-alt text-danger text-center"></i></a></td>
-                                                        </tr>
+                                                        <% var len = AllOfTopics.length %>
+                                                        <% for(let i=0;i<len;i++) { %>  
+                                                            <tr>
+                                                                <td><a href=""></a> <%=AllOfTopics[i].title%> </a></td>
+                                                                <td class="text-left"><%=AllOfTopics[i].author%></td>
+                                                                <td class="text-left"><%=AllOfTopics[i].time%></td>
+                                                                <td class="text-left"><%=AllOfTopics[i].category%></td>
+                                                                <td><a href=""><i class="fas fa-trash-alt text-danger text-center"></i></a></td>
+                                                            </tr>
+                                                        <% }%> 
                                                     </tbody>
                                                 </table>
                                                 <nav>
@@ -123,18 +126,18 @@
                                                                 <span>Previous</span>
                                                             </a>
                                                         </li>
-                                                        <li class="page-item active">
-                                                            <a href="#" class="page-link py-2 px-3">
+                                                        <li class="page-item ">
+                                                            <a href="/dashboard/topic/getall/1" class="page-link py-2 px-3">
                                                                 1
                                                             </a>
                                                         </li>
                                                         <li class="page-item">
-                                                            <a href="#" class="page-link py-2 px-3">
+                                                            <a href="/dashboard/topic/getall/2" class="page-link py-2 px-3">
                                                                 2
                                                             </a>
                                                         </li>
                                                         <li class="page-item">
-                                                            <a href="#" class="page-link py-2 px-3">
+                                                            <a href="/dashboard/topic/getall/3" class="page-link py-2 px-3">
                                                                 3 </a>
                                                         </li>
                                                         <li class="page-item">

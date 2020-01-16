@@ -1,11 +1,13 @@
 require('./config/config');
 require('./models/db');
 
+
 var express = require('express');
 var cookieParser = require('cookie-parser');
 const bodyParse = require('body-parser');
 const cors = require('cors');
 const session = require('express-session');
+var cookie = require('cookie');
 const bcrypt = require('bcryptjs');
 
 const rtsIndex = require('./routers/index.router');
@@ -34,7 +36,7 @@ app.use(session({
   }));
 
 var sessionChecker = (req, res, next) => {
-  if (req.session.user && req.cookies.user_sid) {
+  if (req.session.user) {
       res.redirect('/dashboard');
   } else {
       next();
@@ -45,7 +47,8 @@ var sessionChecker = (req, res, next) => {
 //login
 
 app.route('/login')
-    .get(sessionChecker, (req, res) => {
+    .get((req, res) => {
+      if(sessionStorage.login=="true") res.redirect("/");
         res.render(login);
     })
     .post((req, res) => {
@@ -60,9 +63,8 @@ app.route('/login')
                 bcrypt.compare(password, user.password, function(err, data) {
                   if(data) {
                   // Passwords match
-                    req.session.user = user.dataValues;
                     console.log('dang nhap thanh cong')
-                    res.redirect('/dashboard');
+                    res.redirect('/dashboard/topic/getall/1');
                   } else {
                   // Passwords don't match
                     console.log('sai mat khau');
@@ -75,8 +77,8 @@ app.route('/login')
     });
 //logout
 app.get('/logout', (req, res) => {
-  if (req.session.user && req.cookies.user_sid) {
-      res.clearCookie('user_sid');
+  if (sessionStorage=="true") {
+      ses
       res.redirect('/');
   } else {
       res.redirect('/login');
@@ -84,20 +86,14 @@ app.get('/logout', (req, res) => {
 });
 
 //dashboard
-app.get('/dashboard',(req,res) =>{
-  if (req.session.user && req.cookies.user_sid) {
+app.get('/dashboard/topic/getall',(req,res) =>{
+  if (sessionStorage.login=="true") {
     res.render('dashboard-home');
   }
   else {
     res.redirect('/login');
   }
 })
-
-
-
-
-
-
 
 
 //start server
